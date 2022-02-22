@@ -12,11 +12,11 @@ import androidx.annotation.NonNull;
 
 public class SimpleItem extends DrawerItem<SimpleItem.ViewHolder> {
 
-    private String selectedItemIconTint;
-    private String selectedItemTextTint;
+    private int selectedItemIconTint;
+    private int selectedItemTextTint;
 
-    private String normalItemIconTint;
-    private String normalItemTextTint;
+    private int normalItemIconTint;
+    private int normalItemTextTint;
 
     private Drawable icon;
     private String title;
@@ -38,22 +38,21 @@ public class SimpleItem extends DrawerItem<SimpleItem.ViewHolder> {
     public void bindViewHolder(ViewHolder holder) {
         holder.title.setText(title);
         holder.icon.setImageDrawable(icon);
-        holder.title.setText(isChecked ? selectedItemTextTint + "" : normalItemTextTint + "");
-        holder.icon.setColorFilter(Integer.parseInt(isChecked ? selectedItemIconTint : normalItemIconTint));
+        holder.icon.setColorFilter(isChecked ? selectedItemIconTint : normalItemIconTint);
     }
-    public SimpleItem withSelectedIconTint(String selectedItemIconTint){
+    public SimpleItem withSelectedIconTint(int selectedItemIconTint){
         this.selectedItemIconTint = selectedItemIconTint;
         return this;
     }
-    public SimpleItem withSelectedTextTint(String selectedItemTextTint){
+    public SimpleItem withSelectedTextTint(int selectedItemTextTint){
         this.selectedItemTextTint = selectedItemTextTint;
         return this;
     }
-    public SimpleItem withIconTint(String normalItemIconTint){
+    public SimpleItem withIconTint(int normalItemIconTint){
         this.normalItemIconTint = normalItemIconTint;
         return this;
     }
-    public SimpleItem withTextTint(String normalItemTextTint){
+    public SimpleItem withTextTint(int normalItemTextTint){
         this.normalItemTextTint = normalItemTextTint;
         return this;
     }

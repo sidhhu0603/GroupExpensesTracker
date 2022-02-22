@@ -85,12 +85,12 @@ public class HomePage extends AppCompatActivity implements DrawerAdapter.OnItemS
                 .withIconTint(color(R.color.purple_700))
                 .withTextTint(color(R.color.black))
                 .withSelectedIconTint(color(R.color.purple_700))
-                .withSelectedTextTint(color(R.color.purple_700));
+                .withSelectedTextTint(color(R.color.black));
     }
     @SuppressLint("SupportAnnotationUsage")
     @ColorInt
-    private String color(@ColorRes int res){
-        return String.valueOf(ContextCompat.getColor(this,res));
+    private int color(@ColorRes int res){
+        return ContextCompat.getColor(this,res);
     }
 
     private String[] loadScreenTitles() {
