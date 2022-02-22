@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GroupExpensesTracker</string>
+    <string name="welcome_to_home">WELCOME TO HOME</string>
+    <string name="welcome_to_members">WELCOME TO MEMBERS</string>
+    <string name="welcome_to_modify">WELCOME TO MODIFY</string>
+    <string name="welcome_to_add_expenses">WELCOME TO ADD EXPENSES</string>
+    <string name="welcome_to_calculate">WELCOME TO CALCULATE</string>
+</resources>
