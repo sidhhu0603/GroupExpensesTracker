@@ -38,7 +38,7 @@ public class SignupTabFragment extends Fragment {
 
         firebaseAuth=FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser()!=null){
-            startActivity(new Intent(getContext(),MainActivity.class));
+            startActivity(new Intent(getContext(),HomePage.class));
             getActivity().finish();
         }
 
@@ -103,7 +103,7 @@ public class SignupTabFragment extends Fragment {
                    public void onComplete(@NonNull Task<AuthResult> task) {
                        if (task.isSuccessful()){
                            Toast.makeText(getActivity(), "User Created", Toast.LENGTH_SHORT).show();
-                           startActivity(new Intent(getContext(),MainActivity.class));
+                           startActivity(new Intent(getContext(),GroupCreation.class));
                        }else{
                            Toast.makeText(getActivity(), "Error" +task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                        }

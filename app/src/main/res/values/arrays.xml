@@ -3,10 +3,10 @@
     <string-array name="id_activityScreenTitles">
         <item></item>
         <item>HOME</item>
-        <item>MEMBERS</item>
         <item>ADD EXPENSES</item>
         <item>MODIFY EXPENSES</item>
         <item>CALCULATE AND TRACK EXPENSES</item>
+        <item>EXPENSE GRAPH</item>
         <item/>
         <item>LOGOUT</item>
     </string-array>
@@ -14,10 +14,10 @@
     <array name="id_activityScreenIcons">
         <item>@drawable/close</item>
         <item>@drawable/home</item>
-        <item>@drawable/member</item>
         <item>@drawable/addexpenses</item>
         <item>@drawable/modifyexpenses</item>
         <item>@drawable/calculatexpenses</item>
+        <item>@drawable/expnse</item>
         <item>0</item>
         <item>@drawable/logout</item>
     </array>

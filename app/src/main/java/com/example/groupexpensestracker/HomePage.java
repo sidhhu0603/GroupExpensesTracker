@@ -10,11 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.WindowManager;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
@@ -24,10 +26,10 @@ public class HomePage extends AppCompatActivity implements DrawerAdapter.OnItemS
 
     private static final int POS_CLOSE = 0;
     private static final int POS_HOME = 1;
-    private static final int POS_MEMBERS = 2;
-    private static final int POS_ADD_EXPENSES = 3;
-    private static final int POS_MODIFY_EXPENSES = 4;
-    private static final int POS_CALCULATE_AND_TRACK_EXPENSES = 5;
+    private static final int POS_ADD_EXPENSES = 2;
+    private static final int POS_MODIFY_EXPENSES = 3;
+    private static final int POS_CALCULATE_AND_TRACK_EXPENSES = 4;
+    private static final int POS_EXPENSE_GRAPH = 5;
     private static final int POS_LOGOUT = 7;
 
 
@@ -63,10 +65,10 @@ public class HomePage extends AppCompatActivity implements DrawerAdapter.OnItemS
         DrawerAdapter adapter = new DrawerAdapter(Arrays.asList(
                 createItemFor(POS_CLOSE),
                 createItemFor(POS_HOME).setChecked(true),
-                createItemFor(POS_MEMBERS),
                 createItemFor(POS_ADD_EXPENSES),
                 createItemFor(POS_MODIFY_EXPENSES),
                 createItemFor(POS_CALCULATE_AND_TRACK_EXPENSES),
+                createItemFor(POS_EXPENSE_GRAPH),
                 new SpaceItem(260),
                 createItemFor(POS_LOGOUT)
         ));
@@ -82,10 +84,10 @@ public class HomePage extends AppCompatActivity implements DrawerAdapter.OnItemS
 
     private DrawerItem createItemFor(int position){
         return new SimpleItem(screenIcons[position],screenTitles[position])
-                .withIconTint(color(R.color.purple_700))
+                .withIconTint(color(R.color.Blue))
                 .withTextTint(color(R.color.black))
-                .withSelectedIconTint(color(R.color.purple_700))
-                .withSelectedTextTint(color(R.color.black));
+                .withSelectedIconTint(color(R.color.Blue))
+                .withSelectedTextTint(color(R.color.Blue));
     }
     @SuppressLint("SupportAnnotationUsage")
     @ColorInt
@@ -121,12 +123,7 @@ public class HomePage extends AppCompatActivity implements DrawerAdapter.OnItemS
 
         if (position == POS_HOME){
             HomeFragment homeFragment = new HomeFragment();
-            transaction.replace(R.id.container,homeFragment);
-        }
-
-        else if (position == POS_MEMBERS){
-            MembersFragment membersFragment = new MembersFragment();
-            transaction.replace(R.id.container,membersFragment);
+            transaction.add(R.id.container,homeFragment);
         }
 
         else if (position == POS_ADD_EXPENSES){
@@ -144,7 +141,14 @@ public class HomePage extends AppCompatActivity implements DrawerAdapter.OnItemS
             transaction.replace(R.id.container,candTExpensesFragment);
         }
 
+        else if (position == POS_EXPENSE_GRAPH){
+            ExpenseGraphFragment expenseGraphFragment = new ExpenseGraphFragment();
+            transaction.replace(R.id.container,expenseGraphFragment);
+        }
+
         else if (position == POS_LOGOUT){
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             finish();
         }
 

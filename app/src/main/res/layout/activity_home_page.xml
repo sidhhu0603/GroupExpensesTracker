@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomePage"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="@color/white">
 
     <androidx.appcompat.widget.Toolbar
@@ -13,14 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        app:titleTextColor="#73C6B6" />
+        app:titleTextColor="@color/black" />
 
     <FrameLayout
         android:id="@+id/container"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_weight="1">
 
+    </FrameLayout>
 
 
 
